@@ -6,11 +6,13 @@ import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import { SubmitHandler } from "react-hook-form";
 import { useUserLoginMutation } from "@/redux/api/authApi";
-import { storeUserInfo } from "@/services/auth.service";
+import { getUserInfo, storeUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginSchema } from "@/schemas/login";
 
 type FormValues = {
-  id: string;
+  email: string;
   password: string;
 };
 
@@ -21,12 +23,13 @@ const LoginPage = () => {
   // console.log(isLoggedIn());
 
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
+    console.log(data);
     try {
       const res = await userLogin({ ...data }).unwrap();
-      // console.log(res);
+      console.log(res);
       if (res?.accessToken) {
-        router.push("/profile");
-        message.success("User logged in successfully!");
+        router.push("/");
+        message.success("User logged in successfully!").then(()=>window.location.reload());
       }
       storeUserInfo({ accessToken: res?.accessToken });
       // console.log(res);
@@ -34,6 +37,7 @@ const LoginPage = () => {
       console.error(err.message);
     }
   };
+  
 
   return (
     <Row
@@ -48,6 +52,7 @@ const LoginPage = () => {
       </Col>
       <Col sm={12} md={8} lg={8}>
         <h1
+        className="text-4xl text-center"
           style={{
             margin: "15px 0px",
           }}
@@ -55,9 +60,9 @@ const LoginPage = () => {
           First login your account
         </h1>
         <div>
-          <Form submitHandler={onSubmit}>
+          <Form submitHandler={onSubmit} resolver={yupResolver(loginSchema)}>
             <div>
-              <FormInput name="id" type="text" size="large" label="User Id" />
+              <FormInput name="email" type="text" size="large" label="Email" />
             </div>
             <div
               style={{
@@ -68,7 +73,7 @@ const LoginPage = () => {
                 name="password"
                 type="password"
                 size="large"
-                label="User Password"
+                label="Password"
               />
             </div>
             <Button type="primary" htmlType="submit">
