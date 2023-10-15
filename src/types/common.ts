@@ -1,3 +1,5 @@
+import { string } from "yup";
+
 export interface IMeta{
     limit: number;
     page: number;
@@ -80,4 +82,25 @@ export interface FAQItem {
   id: string;
   title: string;
   content: string;
+}
+
+export interface ICMSBlogPost {
+  id: string;
+  contentType: string;
+  imageUrl: string | null;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ITestimonial 
+  {
+      id: string,
+      userId: string,
+      feedback: string,
+      createdAt: string,
+      updatedAt: string,
+      user: any
+    
 }

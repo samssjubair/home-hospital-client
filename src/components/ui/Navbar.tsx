@@ -76,17 +76,17 @@ const ResponsiveNav = () => {
               <Menu.Item key="1" icon={<HomeOutlined />}>
                 <Link href="/">Home</Link>
               </Menu.Item>
-              <Menu.Item key="2" icon={<UserOutlined />}>
-                <Link href="/upcoming">Upcoming</Link>
+              <Menu.Item key="2" icon={<FontColorsOutlined />}>
+                <Link href="/about">About Us</Link>
               </Menu.Item>
               <Menu.Item key="3" icon={<SettingOutlined />}>
                 <Link href="/categories">Categories</Link>
               </Menu.Item>
-              <Menu.Item key="4" icon={<FontColorsOutlined />}>
-                <Link href="/about">About Us</Link>
-              </Menu.Item>
-              <Menu.Item key="5" icon={<PhoneOutlined />}>
+              <Menu.Item key="4" icon={<PhoneOutlined />}>
                 <Link href="/contact">Contacts</Link>
+              </Menu.Item>
+              <Menu.Item key="5" icon={<UserOutlined />}>
+                <Link href="/profile">Profile</Link>
               </Menu.Item>
               {isClient && !isLoggedIn() && (
                 <Menu.Item key="6">
@@ -133,7 +133,7 @@ const ResponsiveNav = () => {
               <Link href="/">Home</Link>
             </Menu.Item>
             <Menu.Item key="2" icon={<UserOutlined />}>
-              <Link href="/upcoming">Upcoming</Link>
+              <Link href="/profile">Profile</Link>
             </Menu.Item>
             <Menu.Item key="3" icon={<SettingOutlined />}>
               <Link href="/categories">Categories</Link>
@@ -146,7 +146,7 @@ const ResponsiveNav = () => {
             </Menu.Item>
             {1 && (
               <Menu.Item key="6">
-                {isClient &&  !isLoggedIn() ? (
+                {isClient && !isLoggedIn() ? (
                   <div>
                     <Button
                       type="primary"
