@@ -1,3 +1,4 @@
+import HomeCarousel from "@/components/home/Carousel";
 import Navbar from "@/components/ui/Navbar";
 import { Button } from "antd";
 import { redirect } from "next/navigation";
@@ -5,8 +6,7 @@ import { redirect } from "next/navigation";
 const HomePage = () => {
   return (
     <div>
-      {/* <Navbar /> */}
-      <h1>Home Page</h1>
+      <HomeCarousel />
     </div>
   )
   ;
