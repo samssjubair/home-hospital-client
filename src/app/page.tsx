@@ -1,12 +1,12 @@
+
 import HomeCarousel from "@/components/home/Carousel";
-import Navbar from "@/components/ui/Navbar";
-import { Button } from "antd";
-import { redirect } from "next/navigation";
+import Services from "@/components/home/Services";
 
 const HomePage = () => {
   return (
     <div>
       <HomeCarousel />
+      <Services />
     </div>
   )
   ;

@@ -10,6 +10,7 @@ const Providers = ({children}: {children: React.ReactNode}) => {
           {children}
         </StyledComponentsRegistry>
       </Provider>
+      // <>{children}</>
     );
 };
 

@@ -31,22 +31,22 @@ const HomeCarousel: React.FC = () => (
   <Carousel autoplay>
     <CarouselItem
       backgroundImage="https://source.unsplash.com/1600x900/?doctor"
-      title="Experienced Doctors"
+      title="Experienced Doctors at your doorstep"
       description="Providing top-notch healthcare services"
     />
     <CarouselItem
       backgroundImage="https://source.unsplash.com/1600x900/?nurse"
-      title="Skilled Nurses"
+      title="Skilled Nurses in your home"
       description="Caring for your well-being with compassion"
     />
     <CarouselItem
       backgroundImage="https://source.unsplash.com/1600x900/?medicine"
-      title="Quality Medicine"
+      title="Quality Medicine in no time"
       description="Delivering the best pharmaceutical solutions"
     />
     <CarouselItem
       backgroundImage="https://source.unsplash.com/1600x900/?hospital"
-      title="State-of-the-Art Hospitals"
+      title="Blood test without going to hospital"
       description="Your health is our top priority"
     />
   </Carousel>

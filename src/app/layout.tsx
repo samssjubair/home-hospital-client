@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   description: 'Home Hospital',
 }
 
-import { isLoggedIn } from '@/services/auth.service'
 
 
 export default function RootLayout({
