@@ -119,3 +119,10 @@ export const socialLinks = [
     link: "https://www.instagram.com/yourpage",
   },
 ];
+
+export const achievementsData = [
+  { value: "2M+", description: "Member Active", color: "blue-800" },
+  { value: "98%", description: "Satisfied Customer", color: "green-800" },
+  { value: "4.7", description: "User Rating", color: "purple-800" },
+  { value: "15+", description: "Years of Experience" },
+];

@@ -3,8 +3,8 @@ import React from "react";
 
 const Heading = ({title}: {title: string}) => {
   return (
-    <div className="bg-pink-700 py-2 my-8 text-white text-center">
-      <h1 className="text-3xl font-semibold">{title}</h1>
+    <div className=" py-2 my-4 mb-12 text-pink-700 text-center">
+      <h1 className="text-5xl font-semibold">{title}</h1>
     </div>
   );
 };

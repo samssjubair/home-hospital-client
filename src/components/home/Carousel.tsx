@@ -19,7 +19,7 @@ const CarouselItem = ({
 
       }}
     >
-      <div >
+      <div className="px-4">
         <h3 className="text-6xl font-bold">{title}</h3>
         <p className="text-3xl">{description}</p>
       </div>
