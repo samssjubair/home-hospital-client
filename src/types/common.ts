@@ -51,3 +51,27 @@ export interface IAdmin {
   updatedAt: string;
   __v: number;
 }
+
+// home hospital
+export interface IService {
+  id: string;
+  title: string;
+  department: string | null;
+  subCategory: string;
+  imageUrl: string | null;
+  description: string;
+  organization: string;
+  serviceArea: string;
+  price: number;
+  createdAt: string;
+  updatedAt: string;
+  categoryId: string;
+} 
+
+export interface ICategory {
+  id: string;
+  title: string;
+  imageUrl: string | null;
+  createdAt: string;
+  updatedAt: string;
+}

@@ -1,6 +1,7 @@
 import { getBaseUrl } from "@/helpers/config/envConfig";
 import ServiceCard from "./ServiceCard";
 import Heading from "../ui/Heading";
+import { IService } from "@/types";
 
 const Services = async () => {
     const res= await fetch(getBaseUrl()+'/services');
@@ -9,7 +10,7 @@ const Services = async () => {
       <div className="container mx-auto py-8">
         <Heading title="Our Services" />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {data.data.map((service: any) => (
+          {data.data.map((service: IService) => (
             <ServiceCard key={service.id} service={service} />
           ))}
         </div>

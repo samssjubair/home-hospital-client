@@ -96,3 +96,26 @@ export const acSemesterOptions = [
     value: "summer23",
   },
 ];
+
+export const socialLinks = [
+  {
+    name: "Facebook",
+    icon: "fab fa-facebook",
+    link: "https://www.facebook.com/yourpage",
+  },
+  {
+    name: "Twitter",
+    icon: "fab fa-twitter",
+    link: "https://twitter.com/yourpage",
+  },
+  {
+    name: "LinkedIn",
+    icon: "fab fa-linkedin",
+    link: "https://www.linkedin.com/in/yourpage",
+  },
+  {
+    name: "Instagram",
+    icon: "fab fa-instagram",
+    link: "https://www.instagram.com/yourpage",
+  },
+];

@@ -11,12 +11,12 @@
 }
 
 :where(.css-dev-only-do-not-override-amq5gd).ant-menu-dark, :where(.css-dev-only-do-not-override-amq5gd).ant-menu-dark>.ant-menu {
-  background-color: #ec4899 !important;
+  background-color: #bd1958 !important;
   color: #fff;  
 }
 
 :where(.css-dev-only-do-not-override-amq5gd).ant-layout-header{
-  background-color: #ec4899 !important;
+  background-color: #bd1958 !important;
   color: #fff;
 }
 

@@ -1,8 +1,9 @@
-// ServiceCard.js
+
+import { IService } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-const ServiceCard = ({ service }: {service: any}) => {
+const ServiceCard = ({ service }: {service: IService}) => {
   const imageUrl = service.imageUrl || "https://picsum.photos/300/300";
 
   return (
@@ -16,7 +17,7 @@ const ServiceCard = ({ service }: {service: any}) => {
         </h3>
         <p className="text-lg text-pink-500">{service.subCategory}</p>
         <p className="text-lg text-gray-600">${service.price}</p>
-        <button className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-full mt-4">
+        <button className="bg-pink-700 hover:bg-pink-800 text-white font-semibold py-2 px-4 rounded-full mt-4">
           Add to Cart
         </button>
       </div>
