@@ -75,3 +75,9 @@ export interface ICategory {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface FAQItem {
+  id: string;
+  title: string;
+  content: string;
+}
