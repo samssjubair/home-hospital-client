@@ -20,5 +20,10 @@
   color: #fff;
 }
 
+:where(.css-dev-only-do-not-override-amq5gd).ant-menu-dark.ant-menu-horizontal >.ant-menu-item-selected, :where(.css-dev-only-do-not-override-amq5gd).ant-menu-dark>.ant-menu.ant-menu-horizontal >.ant-menu-item-selected, :where(.css-dev-only-do-not-override-amq5gd).ant-menu-dark.ant-menu-horizontal >.ant-menu-submenu-selected, :where(.css-dev-only-do-not-override-amq5gd).ant-menu-dark>.ant-menu.ant-menu-horizontal >.ant-menu-submenu-selected {
+    color: #fff;
+    background-color: #6e0a31 !important;
+}
+
 /* primary: 015ad9
 secondary: 00b4d8 */

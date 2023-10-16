@@ -68,6 +68,7 @@ export interface IService {
   createdAt: string;
   updatedAt: string;
   categoryId: string;
+  reviews: any[] ;
 } 
 
 export interface ICategory {
@@ -104,3 +105,17 @@ export interface ITestimonial
       user: any
     
 }
+
+export interface IReview {
+  id: string;
+  userId: string;
+  serviceId: string;
+  bookingId: string | null;
+  text: string;
+  rating: number;
+  createdAt: string;
+  updatedAt: string;
+  user: any;
+}
+
+export default IReview;

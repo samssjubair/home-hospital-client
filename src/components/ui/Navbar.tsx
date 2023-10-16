@@ -12,7 +12,7 @@ import {
 import {
   HomeOutlined,
   UserOutlined,
-  SettingOutlined,
+  ProfileOutlined ,
   FontColorsOutlined,
   PhoneOutlined,
   MenuOutlined,
@@ -79,14 +79,14 @@ const ResponsiveNav = () => {
               <Menu.Item key="2" icon={<FontColorsOutlined />}>
                 <Link href="/about">About Us</Link>
               </Menu.Item>
-              <Menu.Item key="3" icon={<SettingOutlined />}>
-                <Link href="/categories">Categories</Link>
+              <Menu.Item key="3" icon={<ProfileOutlined />}>
+                <Link href="/services">Services</Link>
               </Menu.Item>
               <Menu.Item key="4" icon={<PhoneOutlined />}>
-                <Link href="/contact">Contacts</Link>
+                <Link href="/contact">Contact Us</Link>
               </Menu.Item>
               <Menu.Item key="5" icon={<UserOutlined />}>
-                <Link href="/profile">Profile</Link>
+                <Link href="/user">Dashboard</Link>
               </Menu.Item>
               {isClient && !isLoggedIn() && (
                 <Menu.Item key="6">
@@ -95,7 +95,7 @@ const ResponsiveNav = () => {
                       type="primary"
                       style={{
                         marginRight: "10px",
-                        backgroundColor: "#00b4d8",
+                        backgroundColor: "#94234e",
                       }}
                     >
                       <Link href="/login">Login</Link>
@@ -132,14 +132,15 @@ const ResponsiveNav = () => {
             <Menu.Item key="1" icon={<HomeOutlined />}>
               <Link href="/">Home</Link>
             </Menu.Item>
-            <Menu.Item key="2" icon={<UserOutlined />}>
-              <Link href="/profile">Profile</Link>
-            </Menu.Item>
-            <Menu.Item key="3" icon={<SettingOutlined />}>
-              <Link href="/categories">Categories</Link>
-            </Menu.Item>
-            <Menu.Item key="4" icon={<FontColorsOutlined />}>
+            <Menu.Item key="2" icon={<FontColorsOutlined />}>
               <Link href="/about">About Us</Link>
+            </Menu.Item>
+            <Menu.Item key="3" icon={<ProfileOutlined />}>
+              <Link href="/services">Services</Link>
+            </Menu.Item>
+
+            <Menu.Item key="4" icon={<UserOutlined />}>
+              <Link href="/user">Dashboard</Link>
             </Menu.Item>
             <Menu.Item key="5" icon={<PhoneOutlined />}>
               <Link href="/contact">Contacts</Link>
@@ -152,7 +153,7 @@ const ResponsiveNav = () => {
                       type="primary"
                       style={{
                         marginRight: "10px",
-                        backgroundColor: "#00b4d8",
+                        backgroundColor: "#94234e",
                       }}
                     >
                       <Link href="/login">Login</Link>

@@ -29,9 +29,10 @@ const LoginPage = () => {
       console.log(res);
       if (res?.accessToken) {
         router.push("/");
+        storeUserInfo({ accessToken: res?.accessToken });
         message.success("User logged in successfully!").then(()=>window.location.reload());
       }
-      storeUserInfo({ accessToken: res?.accessToken });
+      
       // console.log(res);
     } catch (err: any) {
       console.error(err.message);
