@@ -5,6 +5,7 @@ import { getBaseUrl } from "@/helpers/config/envConfig";
 import { IService } from "@/types";
 import React, { useEffect, useState } from "react";
 import { Input, Space, Slider, Pagination } from "antd";
+import _ from "lodash";
 
 const { Search } = Input;
 
@@ -47,6 +48,24 @@ const ServicesPage = () => {
     setPriceRange(value);
   };
 
+  const fetchDataWithDebounce = _.debounce(
+    (page: number, search: string, minPrice: number, maxPrice: number) => {
+      fetchData(page, search, minPrice, maxPrice);
+    },
+    500 // Set your desired debounce delay (e.g., 500 milliseconds)
+  );
+
+  const debouncedSearch = (value: string) => {
+    setSearchTerm(value);
+    fetchDataWithDebounce(currentPage, value, priceRange[0], priceRange[1]);
+  };
+
+  const debouncedPriceChange = (value: any) => {
+    setPriceRange(value);
+    fetchDataWithDebounce(currentPage, searchTerm, value[0], value[1]);
+  };
+
+
   return (
     <div className="container mx-auto py-8">
       <Heading title="Our Services" />
@@ -54,7 +73,7 @@ const ServicesPage = () => {
       <Space direction="vertical" className="w-full mb-4">
         <Search
           placeholder="Search by category, service, city or organization"
-          onSearch={handleSearch}
+          onSearch={debouncedSearch} // Use debounced function for search
           enterButton
           size="large"
         />
@@ -64,7 +83,7 @@ const ServicesPage = () => {
           min={0}
           max={20000} // Set your desired max price
           defaultValue={priceRange}
-          onChange={handlePriceChange}
+          onChange={debouncedPriceChange} // Use debounced function for price filter
         />
       </Space>
 
