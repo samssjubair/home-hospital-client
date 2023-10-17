@@ -4,7 +4,7 @@ import Heading from "../ui/Heading";
 import { IService } from "@/types";
 
 const Services = async () => {
-    const res= await fetch(getBaseUrl()+'/services');
+    const res= await fetch(getBaseUrl()+'/services?page=1&size=4');
     const data=await res.json();
     return (
       <div className="container mx-auto py-8">

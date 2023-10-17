@@ -7,7 +7,6 @@ import ContactUs from "@/components/home/ContactUs";
 import FAQAccordion from "@/components/home/FAQAccordion";
 import Services from "@/components/home/Services";
 import Testimonials from "@/components/home/Testimonials";
-import UpcomingServices from "@/components/home/UpcomingService";
 import { achievementsData } from "@/constants/global";
 
 const HomePage = () => {
@@ -17,12 +16,10 @@ const HomePage = () => {
       <Achievements achievements={achievementsData} />
       <Category />
       <Services />
-      <UpcomingServices />
-
+      {/* <UpcomingServices /> */}
       <Articles />
       <Testimonials />
       <ContactUs />
-
       <FAQAccordion />
     </div>
   );
