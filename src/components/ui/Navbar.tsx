@@ -82,9 +82,9 @@ const ResponsiveNav = () => {
               <Menu.Item key="3" icon={<ProfileOutlined />}>
                 <Link href="/services">Services</Link>
               </Menu.Item>
-              <Menu.Item key="4" icon={<PhoneOutlined />}>
+              {/* <Menu.Item key="4" icon={<PhoneOutlined />}>
                 <Link href="/contact">Contact Us</Link>
-              </Menu.Item>
+              </Menu.Item> */}
               <Menu.Item key="5" icon={<UserOutlined />}>
                 <Link href="/user">Dashboard</Link>
               </Menu.Item>
@@ -142,9 +142,9 @@ const ResponsiveNav = () => {
             <Menu.Item key="4" icon={<UserOutlined />}>
               <Link href="/user">Dashboard</Link>
             </Menu.Item>
-            <Menu.Item key="5" icon={<PhoneOutlined />}>
+            {/* <Menu.Item key="5" icon={<PhoneOutlined />}>
               <Link href="/contact">Contacts</Link>
-            </Menu.Item>
+            </Menu.Item> */}
             {1 && (
               <Menu.Item key="6">
                 {isClient && !isLoggedIn() ? (
