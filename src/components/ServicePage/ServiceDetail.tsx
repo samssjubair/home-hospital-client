@@ -10,6 +10,7 @@ import { getBaseUrl } from "@/helpers/config/envConfig";
 import { getFromLocalStorage } from "@/utils/local-storage";
 import { authKey } from "@/constants/storage";
 import { revalidatePath, revalidateTag } from "next/cache";
+import Link from "next/link";
 
 interface ServiceDetailProps {
   service: IService;
@@ -87,7 +88,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
             <div className="flex justify-between items-center">
               <div>
                 <button className="bg-pink-700 text-white px-4 py-2 rounded-md me-2">
-                  Book Now
+                  <Link href={`/booking?service=${service.id}`}>Book Now</Link>
                 </button>
                 <button className="bg-pink-700 text-white px-4 py-2 rounded-md me-2">
                   Add to Cart
