@@ -110,7 +110,7 @@ const FAQManagePage = () => {
                 style={{
                   margin: "0px 5px",
                 }}
-                onClick={() => console.log(data)}
+                // onClick={() => console.log(data)}
                 type="primary"
               >
                 <EditOutlined />
@@ -130,7 +130,7 @@ const FAQManagePage = () => {
   ];
 
   const onPaginationChange = (page: number, pageSize: number) => {
-    console.log("Page:", page, "PageSize:", pageSize);
+    // console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
     setSize(pageSize);
   };

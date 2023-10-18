@@ -25,7 +25,7 @@ const UpdateCategoryPage = ({ params }: { params: { id: string } }) => {
         .then((res) => res.data)
         .then((data) => {
           setCategoryData(data.data);
-          console.log(data.data);
+          // console.log(data.data);
         });
     };
     fetchData();
