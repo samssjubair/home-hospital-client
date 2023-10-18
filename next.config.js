@@ -6,6 +6,7 @@ const nextConfig = {
       "source.unsplash.com",
       "res.cloudinary.com",
       "picsum.photos",
+      "i.ibb.co",
     ],
   },
 };
