@@ -46,6 +46,11 @@ export const sidebarItems = (role: string) => {
     ...defaultSidebarItems,
     ...commonAdminSidebarItems,
     {
+      label: <Link href={`/${role}/user`}>User Management</Link>,
+      icon: <TableOutlined />,
+      key: `/${role}/user`,
+    },
+    {
       label: <Link href={`/${role}/service`}>Services</Link>,
       icon: <TableOutlined />,
       key: `/${role}/service`,
