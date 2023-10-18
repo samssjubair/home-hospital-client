@@ -60,6 +60,11 @@ export const sidebarItems = (role: string) => {
       icon: <TableOutlined />,
       key: `/${role}/category`,
     },
+    {
+      label: <Link href={`/${role}/booking`}>Booking Management</Link>,
+      icon: <TableOutlined />,
+      key: `/${role}/booking`,
+    },
     // {
     //   label: "Manage academic",
     //   key: "manage-academic",
