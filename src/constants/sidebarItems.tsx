@@ -22,8 +22,8 @@ export const sidebarItems = (role: string) => {
           key: `/${role}/profile`,
         },
         {
-          label: <Link href={`/${role}/change-password`}>Change Password</Link>,
-          key: `/${role}/change-password`,
+          label: <Link href={`/${role}/change-info`}>Change Information</Link>,
+          key: `/${role}/change-info`,
         },
       ],
     },
@@ -65,11 +65,6 @@ export const sidebarItems = (role: string) => {
       icon: <TableOutlined />,
       key: `/${role}/booking`,
     },
-    // {
-    //   label: <Link href={`/${role}/faq`}>FAQ Management</Link>,
-    //   icon: <TableOutlined />,
-    //   key: `/${role}/faq`,
-    // },
     {
       label: "Content Management",
       key: "content-management",
