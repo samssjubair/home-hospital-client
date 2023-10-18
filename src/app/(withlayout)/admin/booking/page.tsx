@@ -7,7 +7,7 @@ import {
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import UMTable from "@/components/ui/UMTable";
 
-import { Button, Input, message } from "antd";
+import { Button, Input, Select, message } from "antd";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ActionBar from "@/components/ui/ActionBar";
@@ -17,6 +17,9 @@ import axios from "axios";
 import { getBaseUrl } from "@/helpers/config/envConfig";
 import { getFromLocalStorage } from "@/utils/local-storage";
 import { authKey } from "@/constants/storage";
+import { set } from "react-hook-form";
+
+const { Option } = Select;
 
 const OrderManagePage = () => {
   const query: Record<string, any> = {};
@@ -66,6 +69,35 @@ const OrderManagePage = () => {
 
   //   const rooms = data?.rooms;
   //   const meta = data?.meta;
+  // const [selectedBooking, setSelectedBooking] = useState<string | null>(null);
+
+// Define a function to handle the status update
+const handleStatusUpdate = async (bookingId: string, newStatus: string) => {
+   message.loading("Updating Status...");
+   try {
+     const res = await axios.patch(
+       `${getBaseUrl()}/bookings/${bookingId}`,
+       { status: newStatus },
+       {
+         headers: {
+           Authorization: `${getFromLocalStorage(authKey)}`,
+         },
+       }
+     );
+     if (res.status === 200) {
+       message.success("Status Updated Successfully");
+       setServices((prevServices) =>
+         prevServices.map((service) =>
+           service.id === bookingId
+             ? { ...service, status: newStatus }
+             : service
+         )
+       );
+     }
+   } catch (err: any) {
+     message.error(err.message);
+   }
+};
 
   const deleteHandler = async (id: string) => {
     message.loading("Deleting.....");
@@ -128,10 +160,30 @@ const OrderManagePage = () => {
         return <>{data?.contactNo}</>;
       },
     },
+    // {
+    //   title: "Status",
+    //   dataIndex: "status",
+    // },
     {
-      title: "Status",
-      dataIndex: "status",
+    title: "Status",
+    dataIndex: "status",
+    render: function (data: any, record: any) {
+      return (
+        <Select
+          defaultValue={data}
+          style={{ width: 120 }}
+          onChange={(value) => 
+            handleStatusUpdate(record.id,value)
+          }
+        >
+          <Option value="booked">Booked</Option>
+          <Option value="processing">Processing</Option>
+          <Option value="completed">Completed</Option>
+          <Option value="canceled">Canceled</Option>
+        </Select>
+      );
     },
+  },
 
     {
       title: "CreatedAt",
@@ -159,11 +211,17 @@ const OrderManagePage = () => {
             </Link>
             <Button
               onClick={() => deleteHandler(data?.id)}
+              style={{
+                margin: "0px 5px 0 0",
+              }}
               type="primary"
               danger
             >
               <DeleteOutlined />
             </Button>
+            {/* <Button type="primary" onClick={() => handleStatusUpdate(data?.id)}>
+              Update Status
+            </Button> */}
           </>
         );
       },
