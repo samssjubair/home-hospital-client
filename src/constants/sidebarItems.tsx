@@ -66,24 +66,21 @@ export const sidebarItems = (role: string) => {
       key: `/${role}/booking`,
     },
     // {
-    //   label: "Manage academic",
-    //   key: "manage-academic",
+    //   label: <Link href={`/${role}/faq`}>FAQ Management</Link>,
     //   icon: <TableOutlined />,
-    //   children: [
-    //     {
-    //       label: <Link href={`/${role}/academic/faculty`}>Faculties</Link>,
-    //       key: `/${role}/academic/faculty`,
-    //     },
-    //     {
-    //       label: <Link href={`/${role}/academic/department`}>Departments</Link>,
-    //       key: `/${role}/academic/department`,
-    //     },
-    //     {
-    //       label: <Link href={`/${role}/academic/semester`}>Semesters</Link>,
-    //       key: `/${role}/academic/semester`,
-    //     },
-    //   ],
+    //   key: `/${role}/faq`,
     // },
+    {
+      label: "Content Management",
+      key: "content-management",
+      icon: <TableOutlined />,
+      children: [
+        {
+          label: <Link href={`/${role}/content/faq`}>FAQs</Link>,
+          key: `/${role}/content/faq`,
+        },
+      ],
+    },
     // {
     //   label: "Management",
     //   key: "management",
