@@ -63,7 +63,7 @@ const UserManagePage = () => {
             }
         })
         setServices(filteredUserData);
-        console.log(filteredUserData)
+        // console.log(filteredUserData)
         setMeta(data.meta);
         setIsLoading(false);
       });
@@ -154,7 +154,7 @@ const UserManagePage = () => {
   ];
 
   const onPaginationChange = (page: number, pageSize: number) => {
-    console.log("Page:", page, "PageSize:", pageSize);
+    // console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
     setSize(pageSize);
   };

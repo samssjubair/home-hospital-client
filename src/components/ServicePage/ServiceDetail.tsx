@@ -34,7 +34,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
           text: newReview,
           rating: rating,
         };
-        console.log(body);
+        // console.log(body);
       axios
         .post(getBaseUrl() + "/reviews/create-review", body, {
             headers: {

@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Home Hospital
 
-## Getting Started
+- Live Demo: 
+- Live Api:
+- Github Server Repo:
+- Github Client Repo:
+- Demo video link: 
 
-First, run the development server:
+## A door step service for patients who want to get treated at home without going to hospital.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## User Features
+- [x] Book an appointment
+- [x] Get a doctor at your doorstep
+- [x] Get a nurse at your doorstep
+- [x] Get a physiotherapist at your doorstep
+- [x] Get a lab technician at your doorstep
+- [x] Get a medical equipment at your doorstep
+- [x] Get a medicine at your doorstep
+- [x] Get a ambulance at your doorstep
+- [x] Get a blood at your doorstep
+- [x] Get a oxygen at your doorstep
+- [x] Get a covid test at your doorstep
+- [x] Get a vaccination at your doorstep
+- [x] Get a covid treatment at your doorstep
+- [x] Get a covid vaccine at your doorstep
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Super Admin Features
+- [x] Manage, add, remove, update admin
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Admin Features
+- Admins can access to a centralized dashboard to monitor and manage website activities.
+- Admins can add, edit, and manage user accounts.
+- Admins are able to add, edit, and remove service listings.
+- Admins are able to add, edit, and remove category listings.
+- Implement a booking management system for administrators to view and manage booking requests.
+- Admins can accept, reject, or adjust schedules as needed.
+- Content management system for administrators to control website content, including blog posts and FAQs.
+- Allow administrators to manage their profiles.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## How to run the project locally
+- Clone the server repository
+- Clone the client repository
+- Run `npm install` or `yarn add` in both the repositories
+- Run `npm start` or `yarn start` in both the repositories
+- The server will run on port 5002 and the client will run on port 3000
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Frontend
+- Nextjs
+- Typescript
+- Ant Design
+- Tailwind
+- dayjs
+- react-hook-form
+- yup validator
+- Redux (Rtk query)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Backend
+- Nodejs
+- Typescript
+- Express
+- Postgres
+- Prisma
+- Zod
+- JWT
+- lint-stage
+- husky
+- winston

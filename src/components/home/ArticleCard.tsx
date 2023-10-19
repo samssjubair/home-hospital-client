@@ -16,7 +16,7 @@ const ArticleCard = ({ article }: {article: ICMSBlogPost}) => {
           <Image
             src={image}
             alt={article.title}
-            className="w-full h-auto rounded-md"
+            className="w-full object-contain h-64 rounded-md"
             height={300}
             width={400}
           />

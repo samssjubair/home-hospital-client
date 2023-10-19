@@ -36,7 +36,7 @@ const ChangeBookingInfo = ({ params }: { params: { id: string } }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const base = "admin";
-  console.log(bookingDetail);
+//   console.log(bookingDetail);
 
   const defaultValues = {
     appointment: bookingDetail?.appointment,

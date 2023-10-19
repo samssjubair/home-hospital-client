@@ -12,7 +12,7 @@ const FAQAccordion: React.FC = async () => {
   // Fetch FAQ data from your API
   const res = await fetch(getBaseUrl() + "/cms/faq/cms");
   const data = await res.json();
-  console.log(data)
+  // console.log(data)
 
   // Map the fetched data to FAQ items
   const faqItems: FAQItem[] = data.data.map((item: any) => ({

@@ -23,7 +23,7 @@ const LoginPage = () => {
   // console.log(isLoggedIn());
 
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
-    console.log(data);
+    // console.log(data);
     try {
       const res = await userLogin({ ...data }).unwrap();
       console.log(res);

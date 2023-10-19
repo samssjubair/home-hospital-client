@@ -53,7 +53,7 @@ const UpdateCategoryPage = ({ params }: { params: { id: string } }) => {
                   message.success("FAQ Updated Successfully");
                 })
                 .catch((err) => {
-                  console.error(err.message);
+                  // console.error(err.message);
                   message.error(err.message);
                 });
             }
