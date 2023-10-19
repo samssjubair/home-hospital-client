@@ -13,9 +13,9 @@ const ServiceCard = ({ service }: {service: IService}) => {
         <Image
           src={imageUrl}
           alt={service.title}
-          className="object-contain"
-          width={400}
+          className="object-cover h-64"
           height={200}
+          width={400}
         />
       </div>
       <div className="mt-4">

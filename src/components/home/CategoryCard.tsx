@@ -15,7 +15,7 @@ const CategoryCard: React.FC<{ category: ICategory }> = ({ category }) => {
             <Image
               src={imageUrl}
               alt={category.title}
-              className="object-cover rounded-t-lg"
+              className="object-cover h-64"
               height={200}
               width={400}
             />
