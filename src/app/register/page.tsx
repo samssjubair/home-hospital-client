@@ -56,7 +56,7 @@ const SignUpPage = () => {
           .catch((err) => message.error("Image Upload Failed"));
       } else {
         data["profileImg"] = imageUrl;
-        data["role"] = "admin";
+        data["role"] = "user";
         delete data["file"];
         axios
           .post(`${getBaseUrl()}/auth/signup`, data)

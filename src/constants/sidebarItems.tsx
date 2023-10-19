@@ -135,17 +135,17 @@ export const sidebarItems = (role: string) => {
 
   const superAdminSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
-    ...commonAdminSidebarItems,
+    // ...commonAdminSidebarItems,
     {
       label: <Link href={`/${role}/admin`}>Manage Admin</Link>,
       icon: <TableOutlined />,
       key: `/${role}/admin`,
     },
-    {
-      label: <Link href={`/${role}/user`}>Manage User</Link>,
-      icon: <TableOutlined />,
-      key: `/${role}/user`,
-    },
+    // {
+    //   label: <Link href={`/${role}/user`}>Manage User</Link>,
+    //   icon: <TableOutlined />,
+    //   key: `/${role}/user`,
+    // },
     // {
     //   label: "Manage permission",
     //   key: "manage-permission",
@@ -157,17 +157,17 @@ export const sidebarItems = (role: string) => {
     //     },
     //   ],
     // },
-    {
-      label: "Management",
-      key: "management",
-      icon: <AppstoreOutlined />,
-      children: [
-        {
-          label: <Link href={`/${role}/department`}>Department</Link>,
-          key: `/${role}/department`,
-        },
-      ],
-    },
+    // {
+    //   label: "Management",
+    //   key: "management",
+    //   icon: <AppstoreOutlined />,
+    //   children: [
+    //     {
+    //       label: <Link href={`/${role}/department`}>Department</Link>,
+    //       key: `/${role}/department`,
+    //     },
+    //   ],
+    // },
   ];
 
 
