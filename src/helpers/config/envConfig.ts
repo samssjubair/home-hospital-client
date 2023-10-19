@@ -1,5 +1,8 @@
 export const getBaseUrl = () => {
-    return process.env.REACT_APP_BASE_URL || 'http://localhost:5002/api/v1';
+    return (
+      process.env.REACT_APP_BASE_URL ||
+      "https://home-hospital.vercel.app/api/v1"
+    );
 }
 
 export const getImageBBKey=()=>{

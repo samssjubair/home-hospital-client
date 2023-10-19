@@ -4,13 +4,15 @@ import Image from "next/image";
 import React, { useState } from "react";
 import Heading from "../ui/Heading";
 import { Rate, message } from "antd";
-import { getUserInfo } from "@/services/auth.service";
+import { getUserInfo, isLoggedIn } from "@/services/auth.service";
 import axios from "axios";
 import { getBaseUrl } from "@/helpers/config/envConfig";
 import { getFromLocalStorage } from "@/utils/local-storage";
 import { authKey } from "@/constants/storage";
 import { revalidatePath, revalidateTag } from "next/cache";
 import Link from "next/link";
+import { useAppDispatch } from "@/redux/hooks";
+import { addToCart } from "@/redux/cart/cartSlice";
 
 interface ServiceDetailProps {
   service: IService;
@@ -56,6 +58,14 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
         });
     }
   };
+  const dispatch= useAppDispatch();
+  const handleAddToCart = () => {
+    if (isLoggedIn()) {
+      dispatch(addToCart(service));
+    } else {
+      message.error("Please login to add to cart");
+    }
+  };
 
   return (
     <div className="container mx-auto p-4">
@@ -87,7 +97,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
           <div className="mb-8">
             <div className="flex justify-between items-center">
               <div>
-                <button className="bg-pink-700 text-white px-4 py-2 rounded-md me-2">
+                <button onClick={handleAddToCart} className="bg-pink-700 text-white px-4 py-2 rounded-md me-2">
                   <Link href={`/booking?service=${service.id}`}>Book Now</Link>
                 </button>
                 <button className="bg-pink-700 text-white px-4 py-2 rounded-md me-2">

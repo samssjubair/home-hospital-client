@@ -43,35 +43,67 @@ const CreateRoomPage = () => {
     message.loading("Creating.....");
     // console.log(data);
     try {
-        let body = new FormData();
-        body.set("key", process.env.NEXT_PUBLIC_IMAGE_BB_API_KEY as string);
-        body.append("image", data.file);
-        
-        const imgBbUrl= 'https://api.imgbb.com/1/upload'
-        axios.post(imgBbUrl,body)
-        .then((res)=>res.data)
-        .then((data)=>setImageUrl(data.data.url))
-        .catch((err)=>message.error("Image Upload Failed"))
+      let body = new FormData();
+      body.set("key", process.env.NEXT_PUBLIC_IMAGE_BB_API_KEY as string);
+      body.append("image", data.file);
 
-    } catch (error) {
-        message.error("Image Upload Failed")
-    }
+      const imgBbUrl = "https://api.imgbb.com/1/upload";
+      axios
+        .post(imgBbUrl, body)
+        .then((res) => res.data)
+        .then((d) => {
+          // Update imageUrl here, only when the image upload is successful
+          setImageUrl(d.data.url);
 
-    try {
-        data["imageUrl"]=imageUrl;
-        delete data['file'];
-        data['price']=parseInt(data.price);
-        axios.post(`${getBaseUrl()}/services/create-service`,data,{
-            headers:{
-                Authorization: `${getFromLocalStorage(authKey)}`
-            }
+          // Continue with your post request or other actions
+          if (d.data.url) {
+            data["imageUrl"] = d.data.url;
+            data["price"]=parseInt(data.price);
+            delete data["file"];
+            axios
+              .post(`${getBaseUrl()}/services/create-service`, data, {
+                headers: {
+                  Authorization: `${getFromLocalStorage(authKey)}`,
+                },
+              })
+              .then((res) => res.data)
+              .then((data) => message.success("Service Created Successfully"));
+          }
         })
-        .then((res)=>res.data)
-        .then((data)=>message.success("Service Created Successfully"))
-    } catch (err: any) {
-      console.error(err.message);
-      message.error(err.message);
+        .catch((err) => message.error("Image Upload Failed"));
+    } catch (error) {
+      message.error("Image Upload Failed");
     }
+    // try {
+    //     let body = new FormData();
+    //     body.set("key", process.env.NEXT_PUBLIC_IMAGE_BB_API_KEY as string);
+    //     body.append("image", data.file);
+        
+    //     const imgBbUrl= 'https://api.imgbb.com/1/upload'
+    //     axios.post(imgBbUrl,body)
+    //     .then((res)=>res.data)
+    //     .then((data)=>setImageUrl(data.data.url))
+    //     .catch((err)=>message.error("Image Upload Failed"))
+
+    // } catch (error) {
+    //     message.error("Image Upload Failed")
+    // }
+
+    // try {
+    //     data["imageUrl"]=imageUrl;
+    //     delete data['file'];
+    //     data['price']=parseInt(data.price);
+    //     axios.post(`${getBaseUrl()}/services/create-service`,data,{
+    //         headers:{
+    //             Authorization: `${getFromLocalStorage(authKey)}`
+    //         }
+    //     })
+    //     .then((res)=>res.data)
+    //     .then((data)=>message.success("Service Created Successfully"))
+    // } catch (err: any) {
+    //   console.error(err.message);
+    //   message.error(err.message);
+    // }
   };
   const base = "admin";
   return (

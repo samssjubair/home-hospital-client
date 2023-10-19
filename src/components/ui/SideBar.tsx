@@ -57,7 +57,7 @@ const SideBar = () => {
             theme="dark"
             defaultSelectedKeys={["1"]}
             mode="inline"
-            items={sidebarItems(userInfo.role)}
+            items={sidebarItems(userInfo?.role)}
           />}
         </Sider>
       </ConfigProvider>

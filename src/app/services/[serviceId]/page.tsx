@@ -8,7 +8,7 @@ export async function generateStaticParams() {
   const {data : services} =await res.json() ;
 
   return services.map((service: IService) => ({
-    serviceId: service.id,
+    serviceId: service?.id,
   }));
 }
 
@@ -17,11 +17,7 @@ const ServiceDetailPage =async ({params}: {params: {serviceId: string}}) => {
     const res = await axios.get(`${getBaseUrl()}/services/${serviceId}`).then((res) => res.data);
     const {data} = res;
 
-    return (
-        <div>
-            <ServiceDetail service={data} />
-        </div>
-    );
+    return <div>{data && <ServiceDetail service={data} />}</div>;
 };
 
 export default ServiceDetailPage;

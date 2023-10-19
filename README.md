@@ -1,9 +1,9 @@
 # Home Hospital
 
-- Live Demo: 
-- Live Api:
-- Github Server Repo:
-- Github Client Repo:
+- Live Demo: https://home-hospital-client.vercel.app
+- Live Api: https://home-hospital.vercel.app/
+- Github Server Repo: https://github.com/samssjubair/home-hospital-server
+- Github Client Repo: https://github.com/samssjubair/home-hospital-client
 - Demo video link: 
 
 ## A door step service for patients who want to get treated at home without going to hospital.
