@@ -7,14 +7,15 @@ import {
   Button,
   Drawer,
   Row,
-  Col
+  Col,
+  Badge
 } from "antd";
 import {
   HomeOutlined,
   UserOutlined,
   ProfileOutlined ,
   FontColorsOutlined,
-  PhoneOutlined,
+  ShoppingCartOutlined,
   MenuOutlined,
 } from "@ant-design/icons";
 import Image from "next/image";
@@ -23,6 +24,7 @@ import Link from "next/link";
 import {  isLoggedIn, removeUserInfo } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
 import { authKey } from "@/constants/storage";
+import { useAppSelector } from "@/redux/hooks";
 
 const { Header } = Layout;
 
@@ -30,6 +32,9 @@ const { Header } = Layout;
 
 const ResponsiveNav = () => {
   const [isClient, setIsClient] = useState(false);
+  const total=useAppSelector((state) => state.cart.totalServices);
+  // const total=2;
+  console.log(total)
 
   useEffect(() => {
     setIsClient(true);
@@ -65,6 +70,7 @@ const ResponsiveNav = () => {
               <Image src={logo} alt="logo" width={150} height={50} />
             </Link>
           </Col>
+
           <Col xs={8} sm={12} md={20} lg={16}>
             {" "}
             {/* Adjust column widths for responsiveness */}
@@ -113,6 +119,14 @@ const ResponsiveNav = () => {
                   </Button>
                 </Menu.Item>
               )}
+              <Menu.Item key="7">
+                <Badge size="small" count={total}>
+                  <ShoppingCartOutlined style={{ color: "white" }} />
+                  <Link style={{ color: "white"}} href="/cart">
+                    Cart
+                  </Link>
+                </Badge>
+              </Menu.Item>
             </Menu>
           </Col>
           <Col xs={0} sm={0} md={0} lg={0}>
@@ -169,6 +183,14 @@ const ResponsiveNav = () => {
                 )}
               </Menu.Item>
             )}
+            <Menu.Item key="7">
+              <Badge size="small" count={total}>
+                <ShoppingCartOutlined style={{ color: "white" }} />
+                <Link style={{ color: "white" }} href="/cart">
+                  Cart
+                </Link>
+              </Badge>
+            </Menu.Item>
           </Menu>
         </Drawer>
       </Header>
