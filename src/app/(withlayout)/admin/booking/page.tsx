@@ -256,7 +256,7 @@ const handleStatusUpdate = async (bookingId: string, newStatus: string) => {
       />
 
       <ActionBar title="Booking List">
-        <Input
+        {/* <Input
           type="text"
           size="large"
           placeholder="Search..."
@@ -266,7 +266,7 @@ const handleStatusUpdate = async (bookingId: string, newStatus: string) => {
           onChange={(e) => {
             setSearchTerm(e.target.value);
           }}
-        />
+        /> */}
         <div>
           {/* <Link href="/admin/service/create">
             <Button type="primary">Create</Button>

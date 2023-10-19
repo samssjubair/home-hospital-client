@@ -31,6 +31,7 @@ const ChangeUserInfo = ({params}: {params: {id: string}}) => {
         });
     };
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const base = "super_admin";
 
