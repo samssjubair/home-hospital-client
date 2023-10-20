@@ -12,15 +12,26 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, Col, Row, message } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import loginImage from '@/assets/login.png';
+import loginImage from "@/assets/login.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { SubmitHandler } from "react-hook-form";
+import { StyleProvider } from "@ant-design/cssinjs";
+
+type FormValues = {
+  email: string;
+  password: string;
+  name: string;
+  contactNo: string;
+  address: string;
+  file: File;
+};
 
 const SignUpPage = () => {
-    const router= useRouter();
+  const router = useRouter();
   const [imageUrl, setImageUrl] = useState<string>("");
 
-  const onSubmit = async (data: any) => {
+  const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     message.loading("Creating.....");
     try {
       if (data.file) {
@@ -45,7 +56,9 @@ const SignUpPage = () => {
                 .post(`${getBaseUrl()}/auth/signup`, data)
                 .then((res) => {
                   res.data;
-                  message.success("User Created Successfully").then(()=>router.push('/login'));
+                  message
+                    .success("User Created Successfully")
+                    .then(() => router.push("/login"));
                 })
                 .catch((err) => {
                   console.error(err.message);
@@ -55,7 +68,6 @@ const SignUpPage = () => {
           })
           .catch((err) => message.error("Image Upload Failed"));
       } else {
-        data["profileImg"] = imageUrl;
         data["role"] = "user";
         delete data["file"];
         axios
@@ -64,7 +76,7 @@ const SignUpPage = () => {
             res.data;
             message
               .success("User Created Successfully")
-              .then(() => router.push("/login"));;
+              .then(() => router.push("/login"));
           })
           .catch((err) => {
             console.error(err.message);
@@ -73,12 +85,12 @@ const SignUpPage = () => {
       }
     } catch (error) {
       message.error("Image Upload Failed");
+      //  message.error(error.message);
     }
   };
 
   return (
-   
-      <Row justify="center" align="middle" style={{ minHeight: "100vh" }}>
+    <Row justify="center" align="middle" style={{ minHeight: "100vh" }}>
       <Col xs={24} sm={24} md={12} lg={12} xl={12}>
         <Image src={loginImage} width={500} alt="login image" />
       </Col>
@@ -92,8 +104,12 @@ const SignUpPage = () => {
           Sign up to get started
         </h1>
         <div>
+          {/* <StyleProvider hashPriority="high"> */}
           <Form submitHandler={onSubmit} resolver={yupResolver(signupSchema)}>
-            <Row gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }} style={{padding: '0 24px'}}>
+            <Row
+              gutter={{ xs: 24, xl: 8, lg: 8, md: 24 }}
+              style={{ padding: "0 24px" }}
+            >
               <Col span={24} style={{ margin: "10px 0" }}>
                 <div style={{ margin: "10px 0px" }}>
                   <FormInput name="name" label="Name" />
@@ -120,6 +136,7 @@ const SignUpPage = () => {
               Sign up
             </Button>
           </Form>
+          {/* </StyleProvider> */}
         </div>
       </Col>
     </Row>
